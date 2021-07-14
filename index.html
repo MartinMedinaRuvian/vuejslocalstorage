@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Practicando Vuej Martin Medina Ruvian</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -15,23 +15,19 @@
 
         <h4>{{titulo}}</h4>
 
-     <div class="card mt-5 mb-5">
-
-        <div class="card-header">
-        
+ 
+        <header>
             <input type="text" v-model="nueva_tarea" class="form-control" @keyup.enter="agregar" placeholder="Ingrese la tarea" required>
             <button class="btn btn-info my-3" @click="agregar">Agregar</button>
+        </header>
 
-        </div>
 
-        <div class="card-body">
-
+        <div class="section">
             <template v-if="tareas.length > 0">
 
                 <h4 :v-if="tareas.length > 0">Lista de tareas:</h4>
            
-                <ul v-for="(tarea, index) of tareas">
-                    <li>  
+                    <div v-for="(tarea, index) of tareas">  
                         <div class="alert p-2" :class="[(tarea.estado) ? 'alert-success' : 'alert-dark']" role="alert">
     
                             <div class="d-flex justify-content-between aling-item-center">
@@ -50,18 +46,13 @@
     
                         </div>        
     
-                    </li>
-                </ul>
+                    </div>
+            
             
             </template>
+        </div>    
             
-           
-
-        </div>
-
-        </div>
-
-
+    
 
     </div>
     
