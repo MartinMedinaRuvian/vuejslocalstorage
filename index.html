@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    
+
+    <div id="app" class="container mt-5 text-center">
+        
+
+        <h4>{{titulo}}</h4>
+
+     <div class="card mt-5 mb-5">
+
+        <div class="card-header">
+        
+            <input type="text" v-model="nueva_tarea" class="form-control" @keyup.enter="agregar" placeholder="Ingrese la tarea" required>
+            <button class="btn btn-info my-3" @click="agregar">Agregar</button>
+
+        </div>
+
+        <div class="card-body">
+
+            <template v-if="tareas.length > 0">
+
+                <h4 :v-if="tareas.length > 0">Lista de tareas:</h4>
+           
+                <ul v-for="(tarea, index) of tareas">
+                    <li>  
+                        <div class="alert p-2" :class="[(tarea.estado) ? 'alert-success' : 'alert-dark']" role="alert">
+    
+                            <div class="d-flex justify-content-between aling-item-center">
+    
+                          <div>
+                            {{tarea.descripcion}}
+                          </div>
+    
+                           <div>
+                            <button @click="editar(index)" class="btn" :class="[(tarea.estado) ? 'btn-dark' : 'btn-success']">{{tarea.estado ? 'X' : 'OK'}}</button>
+                            <button @click="eliminar(index)" class="btn btn-danger">🗑</button>
+                          </div>
+    
+                        </div>
+    
+    
+                        </div>        
+    
+                    </li>
+                </ul>
+            
+            </template>
+            
+           
+
+        </div>
+
+        </div>
+
+
+
+    </div>
+    
+
+    
+    <script src="js/vue.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
